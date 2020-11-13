@@ -1,31 +1,17 @@
-template <class Item>
-class QUEUE
-  {
-    private:
-      struct node
-        { Item item; node* next;
-node(Item x)
-  { item = x; next = 0; }
-        };
-      typedef node *link;
-      link head, tail;
-    public:
-      QUEUE(int)
-        { head = 0; }
-      int empty() const
-        { return head == 0; }
-      void put(Item x)
-        { link t = tail;
-tail = new node(x);
-if (head == 0)
-  head = tail;
-else
-  t->next = tail;
-        }
-      Item get()
-        { Item v = head->item;
-link t = head->next;
-delete head;
-head = t;
-return v; }
-    };
+class Armor:
+
+    def __init__(self, armor: float, description: str, level: int = 1):
+        self.armor = armor
+        self.level = level
+        self.description = description
+
+    def power(self) -> float:
+        return self.armor * self.level
+
+
+armor = Armor(5.2, "Common armor.", 2)
+armor.power()
+# 10.4
+
+print(armor)
+# <__main__.Armor object at 0x7fc4800e2cf8>
